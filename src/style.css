@@ -1,9 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 
 :root {
+  /* text */
   --text-dark: rgba(48, 48, 48, 1);
   --text-light:rgba(255, 255, 255, 1);
   --text-grey:rgba(105, 105, 105, 1);
+
+  /* button */
+  --btn-color: #FE6A35;
 }
 
 * {
@@ -16,4 +20,9 @@ hr {
   width: 100%;
   height: 1px;
   color: rgba(147, 147, 148, 1);
+  opacity: 0.3;
+}
+
+.p-panelmenu-panel, .p-message-error {
+  border: none !important;
 }

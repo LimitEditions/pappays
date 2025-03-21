@@ -1,36 +1,43 @@
 <template>
-  <div>
-    <TieredMenu :model="items">
-      <template #item="{ item, props, hasSubmenu }">
-        <a
-          v-ripple
-          class="navbar__item"
-          v-bind="props.action"
-          :class="{ 'navbar__item--active': hasSubmenu && isActive(item) }"
-          @click="toggleMenu(item, hasSubmenu)"
-        >
-          <div class="navbar__item-flex">
-            <div class="navbar__item_icon"
-            :class="{ 'navbar__item_icon--active': isActive(item) }">
-              <img :src="item.icon" alt="icon" class="menu-icon" />
+  <div class="navbar">
+    <div class="navbar__content">
+      <PanelMenu :model="items">
+        <template #item="{ item, props, hasSubmenu }">
+          <a v-ripple class="navbar__item" v-bind="props.action" :class="{ 'navbar__item--active': isActive(item) }"
+            @click="toggleMenu(item)">
+            <div class="navbar__item-flex">
+              <div class="navbar__item_icon" :class="{ 'navbar__item_icon--active': isActive(item) }">
+                <img :src="item.icon" alt="icon" class="menu-icon" />
+              </div>
+              <span class="navbar__item_label" :class="{ 'navbar__item_label--active': isActive(item) }">{{
+                item.label }}</span>
             </div>
-            <span class="navbar__item_label"
-            :class="{ 'navbar__item_label--active': hasSubmenu && isActive(item) }">{{ item.label }}</span>
-          </div>
-          <i
-            v-if="hasSubmenu"
-            :class="isActive(item) ? 'pi pi-minus' : 'pi pi-plus'"
-          ></i>
-        </a>
-      </template>
-    </TieredMenu>
+            <i v-if="hasSubmenu" :class="isActive(item) ? 'pi pi-minus' : 'pi pi-plus'"></i>
+          </a>
+        </template>
+      </PanelMenu>
+      <div class="navbar__settings">
+        <hr />
+        <Button label="Şifremi Değiştir" size="large" class="button">
+          <template #icon>
+            <img src="../../public/image/Şifremi Değiştir_btn.svg" alt="enter" />
+          </template>
+        </Button>
+        <Button label="Cıkış Yap" size="large" class="button_exit">
+          <template #icon>
+            <img src="../../public/image/Cıkış Yap.svg" alt="enter" />
+          </template>
+        </Button>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
 import type { MenuItem } from "primevue/menuitem"
-import TieredMenu from "primevue/tieredmenu";
+import PanelMenu from "primevue/panelmenu";
+import Button from "primevue/button";
 
 const activeItem = ref<MenuItem | null>(null);
 
@@ -38,10 +45,8 @@ const isActive = (item: MenuItem) => {
   return JSON.stringify(activeItem.value) === JSON.stringify(item);
 };
 
-const toggleMenu = (item: MenuItem, hasSubmenu: boolean) => {
-    if (hasSubmenu) {
-    activeItem.value = isActive(item) ? null : item;
-  }
+const toggleMenu = (item: MenuItem) => {
+  activeItem.value = isActive(item) ? null : item;
 };
 
 const items: MenuItem[] = [
@@ -125,7 +130,16 @@ const items: MenuItem[] = [
 .navbar {
   margin-top: 20px;
   display: flex;
+  flex-direction: column;
+  height: 80vh;
 }
+
+.navbar__content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
 .navbar__item {
   margin-bottom: 5px;
   width: 237px;
@@ -174,6 +188,37 @@ const items: MenuItem[] = [
 }
 
 .navbar__item_label--active {
-    color: var(--text-light);
+  color: var(--text-light);
+}
+
+.navbar__settings {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  gap: 5px;
+}
+
+.button {
+  width: 237px;
+  height: 42px;
+  margin-top: 12px;
+  border-radius: 15px;
+  background-color: var(--btn-color);
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 8px;
+  gap: 12px;
+  color: var(--text-light);
+}
+
+.button_exit {
+  width: 237px;
+  height: 42px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 8px;
+  gap: 12px;
+  color: var(--text-dark);
 }
 </style>
