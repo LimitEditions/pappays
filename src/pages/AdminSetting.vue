@@ -20,7 +20,7 @@
       </div>
       <hr />
       <div :class="{ 'navbar__content--open': isMobileMenuOpen }">
-        <NavBar :isMobileOpen="isMobileMenuOpen"/>
+        <NavBar :isMobileOpen="isMobileMenuOpen" />
       </div>
     </nav>
     <main class="content">
@@ -30,8 +30,10 @@
           <h2 class="headding-title">Yönetici Şifresini Değiştirme</h2>
         </div>
         <div class="admin">
-          <img src="/image/photo.png" alt="photo">
-          <p>Kuzey (justpayhizlipp)<span style="display: block; opacity:0.5">36341</span></p>
+          <div class="admin__photo">
+            <img src="/image/photo.png" alt="photo">
+            <p>Kuzey (justpayhizlipp)<span style="display: block; opacity:0.5">36341</span></p>
+          </div>
           <img src="/image/setting.svg" alt="setting">
         </div>
       </div>
@@ -141,9 +143,30 @@ const toggleMobileMenu = () => {
 }
 
 .admin {
+  width: 242px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 3px 15px 3px 3px;
+}
+
+.admin p {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 130%;
+}
+
+.admin span {
+  font-weight: 400;
+}
+
+.admin__photo {
+  display: flex;
+    gap: 10px;
+    align-items: center
 }
 
 /* Стили для формы */
@@ -202,7 +225,7 @@ input {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding:0 3px;
+    padding: 0 3px;
   }
 
   .sidebar__logo img {

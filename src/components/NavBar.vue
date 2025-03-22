@@ -156,6 +156,7 @@ const item: MenuItem[] = [
   height: 44px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background: rgba(0, 0, 0, 0.05);
   padding: 10px 15px 10px 8px;
   border-radius: 15px;
