@@ -16,6 +16,10 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: 'Manrope', sans-serif;
+}
+
 hr {
   width: 100%;
   height: 1px;
@@ -25,4 +29,21 @@ hr {
 
 .p-panelmenu-panel, .p-message-error {
   border: none !important;
+  background: none !important;
+  padding: 0 !important;
 }
+
+.p-inputtext {
+border: none !important;
+background: rgba(238, 237, 240, 1) !important;
+border-radius: 18px !important;
+}
+
+.p-password:has(.p-password-toggle-mask-icon) .p-password-input {
+  width: 189px !important;
+}
+
+@media (max-width: 768px) {
+
+}
+

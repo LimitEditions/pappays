@@ -8,15 +8,15 @@
             </div>
             <hr />
             <div class="input-group">
-                <label>Yeni Şifre</label>
+                <label>{{ isMobile ? 'Şifre' : 'Yeni Şifre' }}</label>
                 <Password v-model="newPassword" toggleMask class="input" feedback />
             </div>
             <div class="input-group">
-                <label>Yeni Şifre Tekrar: </label>
+                <label>{{ isMobile ? 'Şifre Tekrar' : 'Yeni Şifre Tekrar:' }}</label>
                 <Password v-model="confirmPassword" toggleMask class="input" />
             </div>
             <hr />
-            <Button label="Değiştir" size="large" class="button" @click="changePassword">
+            <Button label="Değiştir" severity="warn" class="button" @click="changePassword">
                 <template #icon>
                     <img src="/image/Frame 137.svg" alt="enter" />
                 </template>
@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
 import InputText from 'primevue/inputtext';
 import Password from "primevue/password";
 import Message from "primevue/message";
@@ -49,6 +49,20 @@ const changePassword = () => {
 
 const passwordsMatch = computed(() => {
     return newPassword.value === confirmPassword.value;
+});
+
+const windowWidth = ref(window.innerWidth);
+const isMobile = computed(() => windowWidth.value <= 768);
+
+const handleResize = () => {
+    windowWidth.value = window.innerWidth;
+};
+
+onMounted(() => {
+    window.addEventListener('resize', handleResize);
+});
+onBeforeUnmount(() => {
+    window.removeEventListener('resize', handleResize);
 });
 </script>
 
@@ -88,13 +102,17 @@ label {
     color: rgba(0, 0, 0, 1);
 }
 
+:deep(.p-password-toggle-mask-icon) {
+    width: 20px;
+    height: 18px;
+}
+
 .input {
     width: 446px;
-    padding: 11px 20px;
+    height: 42px;
     border-radius: 18px;
     font-size: 14px;
     background-color: rgba(238, 237, 240, 1);
-    display: flex;
     color: rgba(147, 147, 148, 1);
 }
 
@@ -119,11 +137,40 @@ label {
     width: 132px;
     height: 42px;
     margin-left: 150px;
+    margin-top: 10px;
     border-radius: 18px;
     background-color: var(--btn-color);
     display: flex;
     justify-content: flex-start;
     padding-left: 3px;
     gap: 12px;
+}
+
+@media (max-width: 768px) {
+
+    .change-password {
+        width: 343px;
+        height: 386px;
+        padding: 15px;
+    }
+
+    form {
+        width: 313px;
+        padding: 20px;
+    }
+
+    .message-error {
+        width: 313px;
+    }
+
+    .input {
+        width: 189px;
+    }
+
+    .button {
+        margin: 0;
+        width: 100%;
+    }
+
 }
 </style>

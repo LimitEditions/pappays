@@ -1,12 +1,27 @@
 <template>
   <div class="admin-page">
     <nav class="sidebar">
-      <div class="sidebar__logo">
-        <img src="/image/Group 143.png" alt="Logo Pappays" />
-        <h2 class="sidebar__headding">Pappays</h2>
+      <div class="sidebar__header">
+        <div class="sidebar__logo">
+          <img src="/image/Group 143.png" alt="Logo Pappays" />
+          <h2 class="sidebar__headding">Pappays</h2>
+        </div>
+        <div class="burger">
+          <img src="/public//image/photo.png" alt="photo" class="burger-photo">
+          <Button class="burgeer__btn" @click="toggleMobileMenu">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="36" height="36" rx="15" fill="white" />
+              <line x1="10" y1="13" x2="26" y2="13" stroke="#303030" stroke-width="2" />
+              <line x1="10" y1="18" x2="26" y2="18" stroke="#303030" stroke-width="2" />
+              <line x1="10" y1="23" x2="26" y2="23" stroke="#303030" stroke-width="2" />
+            </svg>
+          </Button>
+        </div>
       </div>
       <hr />
-      <NavBar />
+      <div :class="{ 'navbar__content--open': isMobileMenuOpen }">
+        <NavBar :isMobileOpen="isMobileMenuOpen"/>
+      </div>
     </nav>
     <main class="content">
       <div class="headding">
@@ -22,28 +37,36 @@
       </div>
       <hr />
       <div class="changepass-container">
-        <ChangePassword/>
+        <ChangePassword />
       </div>
     </main>
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref } from "vue";
 import ChangePassword from "../components/ChangePassword.vue";
 import NavBar from "../components/NavBar.vue";
+
+const isMobileMenuOpen = ref(true);
+
+const toggleMobileMenu = () => {
+  isMobileMenuOpen.value = !isMobileMenuOpen.value;
+};
+
 </script>
 
 <style scoped>
 .admin-page {
   padding: 30px;
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
   gap: 30px;
 }
 
 /* Стили для боковой панели */
 .sidebar {
-  width: 277px;
+  min-width: 277px;
   background: rgba(162, 162, 162, 0.25);
   padding: 20px;
   border-radius: 20px;
@@ -52,7 +75,6 @@ import NavBar from "../components/NavBar.vue";
 .sidebar__logo {
   display: flex;
   align-items: center;
-  margin-bottom: 5px;
 }
 
 .sidebar__headding {
@@ -63,6 +85,16 @@ import NavBar from "../components/NavBar.vue";
 .sidebar a {
   color: white;
   text-decoration: none;
+}
+
+.navbar__content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.navbar__content--open {
+  display: flex;
 }
 
 /* Стили для блока с формой */
@@ -98,8 +130,8 @@ import NavBar from "../components/NavBar.vue";
 
 .headding-title {
   line-height: 140%;
-color: var(--text-ligh);
-opacity: 0.5;
+  color: var(--text-ligh);
+  opacity: 0.5;
 }
 
 .pass-change {
@@ -137,5 +169,69 @@ input {
   border: none;
 }
 
+/* Burger */
+.burger {
+  display: none;
+}
 
+.burgeer__btn {
+  border: none;
+  background: none;
+}
+
+/* Адаптив под мобильные устройства */
+@media (max-width: 768px) {
+  .admin-page {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    gap: 30px;
+  }
+
+  .sidebar {
+    height: 42px;
+    padding: 0;
+  }
+
+  .sidebar hr {
+    display: none;
+  }
+
+  .sidebar__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:0 3px;
+  }
+
+  .sidebar__logo img {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+  }
+
+  .sidebar__headding {
+    font-size: 20px;
+  }
+
+  .burger {
+    display: flex;
+    gap: 10px;
+  }
+
+  .burger-photo {
+    width: 36px;
+    height: 36px;
+  }
+
+  .headding {
+    margin: 15px;
+  }
+
+  .admin {
+    display: none;
+  }
+}
 </style>
