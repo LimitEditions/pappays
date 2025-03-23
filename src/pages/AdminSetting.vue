@@ -68,9 +68,9 @@ const toggleMobileMenu = () => {
 
 /* Стили для боковой панели */
 .sidebar {
-  min-width: 277px;
+  width: 277px;
   background: rgba(162, 162, 162, 0.25);
-  padding: 20px;
+  padding: 8px 20px;
   border-radius: 20px;
 }
 
@@ -112,7 +112,7 @@ const toggleMobileMenu = () => {
     radial-gradient(140% 94% at 50% 100%, #0064ffff 0%, #ff000000 100%),
     radial-gradient(0% 0% at 0% 0%, #016dffff 0%, #00254fff 100%);
   padding: 20px;
-  border-radius: 20px;
+  border-radius: 25px;
   color: white;
 }
 
@@ -125,13 +125,12 @@ const toggleMobileMenu = () => {
 }
 
 .headding {
+  margin: 3px 5px 19px 5px;
   display: flex;
   justify-content: space-between;
-  margin: 25px;
 }
 
 .headding-title {
-  line-height: 140%;
   color: var(--text-ligh);
   opacity: 0.5;
 }
@@ -150,7 +149,7 @@ const toggleMobileMenu = () => {
   gap: 10px;
   background: rgba(255, 255, 255, 0.2);
   border-radius: 20px;
-  padding: 3px 15px 3px 3px;
+  padding: 5px 15px 3px 3px;
 }
 
 .admin p {
@@ -165,8 +164,8 @@ const toggleMobileMenu = () => {
 
 .admin__photo {
   display: flex;
-    gap: 10px;
-    align-items: center
+  gap: 10px;
+  align-items: center
 }
 
 /* Стили для формы */
@@ -205,14 +204,14 @@ input {
 /* Адаптив под мобильные устройства */
 @media (max-width: 768px) {
   .admin-page {
-    padding: 30px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    gap: 30px;
+    gap: 8px;
   }
 
   .sidebar {
+    width: 373px;
     height: 42px;
     padding: 0;
   }
@@ -249,12 +248,40 @@ input {
     height: 36px;
   }
 
-  .headding {
-    margin: 15px;
+  .content {
+    padding: 15px;
   }
+
+  .headding {
+    margin: 0;
+  }
+
+  .headding-title {
+    font-weight: 600;
+    font-size: 20px;
+  }
+
+  .pass-change {
+    margin-bottom: 15px;
+  }
+
+
+  .changepass-container{
+    margin-top: 15px;
+  }
+
+  .change-password {
+        gap: 14px;
+    }
 
   .admin {
     display: none;
   }
+
+  .message-error {
+    height: 54px;
+  }
+
+
 }
 </style>

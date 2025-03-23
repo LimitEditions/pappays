@@ -1,15 +1,15 @@
 <template>
-  <div :class="{'navbar': isVisible, 'navbar--visible': !isVisible}">
+  <div :class="['navbar', { 'navbar--visible': !isVisible }]">
     <PanelMenu :model="item">
       <template #item="{ item, props }">
         <a v-ripple class="navbar__item" v-bind="props.action" :class="{ 'navbar__item--active': isActive(item) }"
           @click="toggleMenu(item)">
           <div class="navbar__item-flex">
             <div v-if="item.icon" class="navbar__item_icon" :class="{ 'navbar__item_icon--active': isActive(item) }">
-              <img  :src="item.icon" alt="icon" class="menu-icon" />
+              <img :src="item.icon" alt="icon" class="menu-icon" />
             </div>
-            <span class="navbar__item_label" :class="{ 'navbar__item_label--active': isActive(item) }">{{
-              item.label }}</span>
+            <span class="navbar__item_label" :class="{ 'navbar__item_label--active': isActive(item) }">
+              {{ item.label }}</span>
           </div>
           <i v-if="item.items" :class="isActive(item) ? 'pi pi-minus' : 'pi pi-plus'"></i>
         </a>
@@ -32,34 +32,24 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, onMounted, onBeforeUnmount,  defineProps } from "vue";
+import { computed, ref, onMounted, onBeforeUnmount, defineProps } from "vue";
 import type { MenuItem } from "primevue/menuitem"
 import PanelMenu from "primevue/panelmenu";
 import Button from "primevue/button";
 
 const windowWidth = ref(window.innerWidth);
-const updateWidth = () => {
-  windowWidth.value = window.innerWidth;
-};
+const updateWidth = () => { windowWidth.value = window.innerWidth };
 
-onMounted(() => {
-  window.addEventListener('resize', updateWidth);
-});
+onMounted(() => { window.addEventListener('resize', updateWidth) });
 
-onBeforeUnmount(() => {
-  window.removeEventListener('resize', updateWidth);
-});
+onBeforeUnmount(() => { window.removeEventListener('resize', updateWidth) });
 
-const isVisible = computed(() => {
-  return windowWidth.value > 768 ? true : props.isMobileOpen;
-});
+const isVisible = computed(() => { return windowWidth.value > 768 ? true : props.isMobileOpen });
 
 const activeItem = ref<MenuItem | null>(null);
 const props = defineProps<{ isMobileOpen: boolean }>();
 
-const isActive = (item: MenuItem) => {
-  return JSON.stringify(activeItem.value) === JSON.stringify(item);
-};
+const isActive = (item: MenuItem) => { return JSON.stringify(activeItem.value) === JSON.stringify(item) };
 
 const toggleMenu = (item: MenuItem) => {
   activeItem.value = isActive(item) ? null : item;
@@ -151,9 +141,8 @@ const item: MenuItem[] = [
 }
 
 .navbar__item {
-  margin-bottom: 5px;
   width: 237px;
-  height: 44px;
+  height: 42px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -205,14 +194,14 @@ const item: MenuItem[] = [
 .navbar__settings {
   display: flex;
   flex-direction: column;
-  margin-top: auto;
+  margin-top: 263px;
   gap: 5px;
 }
 
 .button {
   width: 237px;
   height: 42px;
-  margin-top: 12px;
+  margin-top: 5px;
   border-radius: 15px;
   background-color: var(--btn-color);
   display: flex;
@@ -237,7 +226,8 @@ const item: MenuItem[] = [
   .navbar {
     display: none;
   }
-  .navbar--visible{
+
+  .navbar--visible {
     background: rgba(238, 237, 240, 1);
     position: absolute;
     right: 30px;

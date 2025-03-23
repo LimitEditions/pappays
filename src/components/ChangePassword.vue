@@ -86,7 +86,7 @@ form {
     padding: 25px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 9px;
     background-color: var(--text-light);
 }
 
@@ -134,7 +134,7 @@ label {
 }
 
 .button {
-    width: 132px;
+    width: 123px;
     height: 42px;
     margin-left: 150px;
     margin-top: 10px;
@@ -144,6 +144,12 @@ label {
     justify-content: flex-start;
     padding-left: 3px;
     gap: 12px;
+    font-size: 14px;
+    line-height: 140%;
+}
+
+.button span {
+
 }
 
 @media (max-width: 768px) {
@@ -152,6 +158,7 @@ label {
         width: 343px;
         height: 386px;
         padding: 15px;
+        gap: 11px;
     }
 
     form {
@@ -168,7 +175,7 @@ label {
     }
 
     .button {
-        margin: 0;
+        margin-left: 0;
         width: 100%;
     }
 
