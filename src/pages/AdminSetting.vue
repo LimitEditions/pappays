@@ -7,19 +7,72 @@
           <h2 class="sidebar__headding">Pappays</h2>
         </div>
         <div class="burger">
-          <img src="/public//image/photo.png" alt="photo" class="burger-photo">
+          <img
+            src="/public//image/photo.png"
+            alt="photo"
+            class="burger-photo"
+          />
           <Button class="burgeer__btn" @click="toggleMobileMenu">
-            <svg v-if="isMobileMenuOpen" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg
+              v-if="isMobileMenuOpen"
+              width="36"
+              height="36"
+              viewBox="0 0 36 36"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <rect width="36" height="36" rx="15" fill="white" />
-              <line x1="10" y1="13" x2="26" y2="13" stroke="#303030" stroke-width="2" />
-              <line x1="10" y1="18" x2="26" y2="18" stroke="#303030" stroke-width="2" />
-              <line x1="10" y1="23" x2="26" y2="23" stroke="#303030" stroke-width="2" />
+              <line
+                x1="10"
+                y1="13"
+                x2="26"
+                y2="13"
+                stroke="#303030"
+                stroke-width="2"
+              />
+              <line
+                x1="10"
+                y1="18"
+                x2="26"
+                y2="18"
+                stroke="#303030"
+                stroke-width="2"
+              />
+              <line
+                x1="10"
+                y1="23"
+                x2="26"
+                y2="23"
+                stroke="#303030"
+                stroke-width="2"
+              />
             </svg>
 
-            <svg v-else width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="36" height="36" rx="15" fill="#303030"/>
-              <line x1="12.6362" y1="23.2929" x2="23.9499" y2="11.9792" stroke="white" stroke-width="2"/>
-              <line x1="13.0504" y1="12.2929" x2="24.3641" y2="23.6066" stroke="white" stroke-width="2"/>
+            <svg
+              v-else
+              width="36"
+              height="36"
+              viewBox="0 0 36 36"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect width="36" height="36" rx="15" fill="#303030" />
+              <line
+                x1="12.6362"
+                y1="23.2929"
+                x2="23.9499"
+                y2="11.9792"
+                stroke="white"
+                stroke-width="2"
+              />
+              <line
+                x1="13.0504"
+                y1="12.2929"
+                x2="24.3641"
+                y2="23.6066"
+                stroke="white"
+                stroke-width="2"
+              />
             </svg>
           </Button>
         </div>
@@ -32,15 +85,19 @@
     <main class="content">
       <div class="headding">
         <div class="pass-change">
-          <img src="/image/Admin_photo.svg" alt="admin photo">
+          <img src="/image/Admin_photo.svg" alt="admin photo" />
           <h2 class="headding-title">Yönetici Şifresini Değiştirme</h2>
         </div>
         <div class="admin">
           <div class="admin__photo">
-            <img src="/image/photo.png" alt="photo">
-            <p>Kuzey (justpayhizlipp)<span style="display: block; opacity:0.5">36341</span></p>
+            <img src="/image/photo.png" alt="photo" />
+            <p>
+              Kuzey (justpayhizlipp)<span style="display: block; opacity: 0.5"
+                >36341</span
+              >
+            </p>
           </div>
-          <img src="/image/setting.svg" alt="setting">
+          <img src="/image/setting.svg" alt="setting" />
         </div>
       </div>
       <hr />
@@ -61,7 +118,6 @@ const isMobileMenuOpen = ref(true);
 const toggleMobileMenu = () => {
   isMobileMenuOpen.value = !isMobileMenuOpen.value;
 };
-
 </script>
 
 <style scoped>
@@ -109,9 +165,11 @@ const toggleMobileMenu = () => {
 .content {
   flex-grow: 1;
   background-size: 100% 100%;
-  background-image: radial-gradient(60% 80% at 50% 42%,
+  background-image: radial-gradient(
+      60% 80% at 50% 42%,
       #02d1ffd4 0%,
-      #073aff00 100%),
+      #073aff00 100%
+    ),
     radial-gradient(113% 91% at 17% -2%, #000b2bff 0%, #000b2b00 99%),
     radial-gradient(180% 94% at 50% 100%, #01c2dbeb 22%, #ff000000 99%),
     radial-gradient(240% 50% at 50% 100%, #00ffa2ff 0%, #ff000000 59%),
@@ -171,7 +229,7 @@ const toggleMobileMenu = () => {
 .admin__photo {
   display: flex;
   gap: 10px;
-  align-items: center
+  align-items: center;
 }
 
 /* Стили для формы */
@@ -271,14 +329,13 @@ input {
     margin-bottom: 15px;
   }
 
-
-  .changepass-container{
+  .changepass-container {
     margin-top: 15px;
   }
 
   .change-password {
-        gap: 14px;
-    }
+    gap: 14px;
+  }
 
   .admin {
     display: none;
@@ -288,6 +345,16 @@ input {
     height: 54px;
   }
 
+  @media (prefers-color-scheme: dark) {
+    .sidebar__headding {
+      color: var(--text-ligh);
+    }
+  }
 
+  @media (prefers-color-scheme: light) {
+    .sidebar__headding {
+      color: var(--text-dark);
+    }
+  }
 }
 </style>
