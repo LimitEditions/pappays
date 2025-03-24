@@ -173,13 +173,13 @@ label {
 
 @media (prefers-color-scheme: dark) {
     .button {
-        color: var(--text-ligh);
+        color: var(--text-light);
     }
 }
 
 @media (prefers-color-scheme: light) {
     .button {
-        color: var(--text-dark);
+        color: var(--text-light);
     }
 }
 </style>
