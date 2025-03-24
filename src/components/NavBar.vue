@@ -153,7 +153,7 @@ const item: MenuItem[] = [
 
 .navbar__item--active {
   background: rgba(254, 106, 53, 1);
-  color: white;
+  color: var(--text-dark);
 }
 
 .navbar__item-flex {
@@ -229,13 +229,14 @@ const item: MenuItem[] = [
   .navbar--visible {
     background: rgba(226, 226, 226, 0.8);
     position: absolute;
+    top: 60px;
     display: block;
     z-index: 1;
     padding: 25px 20px;
     margin: 0;
     border-radius: 20px;
     backdrop-filter: blur(80px);
-    width: 354px;
+    width: 373px;
   }
 
   .navbar__toggle {
@@ -251,6 +252,10 @@ const item: MenuItem[] = [
     background: white;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 10;
+  }
+
+  .navbar__settings {
+    margin-top: 34px;
   }
 }
 </style>
