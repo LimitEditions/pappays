@@ -159,6 +159,7 @@ const toggleMobileMenu = () => {
 
 .navbar__content--open {
   display: flex;
+  height: 90%;
 }
 
 /* Стили для блока с формой */
@@ -178,11 +179,6 @@ const toggleMobileMenu = () => {
   padding: 20px;
   border-radius: 25px;
   color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: calc(100vh - 120px);
-  padding: 20px;
 }
 
 .changepass-container {
@@ -190,6 +186,7 @@ const toggleMobileMenu = () => {
   justify-content: center;
   align-items: center;
   flex-grow: 1;
+  margin-top: 90px;
 }
 
 .headding {

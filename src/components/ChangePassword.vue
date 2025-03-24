@@ -3,17 +3,17 @@
         <Message v-if="showError" severity="error" class="message-error">Lütfen bilgilerinizi kontrol ediniz.</Message>
         <form @submit.prevent="changePassword">
             <div class="input-group">
-                <label>E-Posta</label>
-                <InputText name="email" type="text" placeholder="Email" class="input" />
+                <label>{{ isMobile ? '' : 'E-Posta' }}</label>
+                <InputText name="email" type="text" :placeholder="isMobile ? 'E-Posta' : ''" class="input" />
             </div>
             <hr />
             <div class="input-group">
-                <label>{{ isMobile ? 'Şifre' : 'Yeni Şifre' }}</label>
-                <Password v-model="newPassword" toggleMask class="input" feedback />
+                <label>{{ isMobile ? '' : 'Yeni Şifre' }}</label>
+                <Password v-model="newPassword" toggleMask :placeholder="isMobile ? 'Şifre' : ''" class="input" feedback />
             </div>
             <div class="input-group">
-                <label>{{ isMobile ? 'Şifre Tekrar' : 'Yeni Şifre Tekrar:' }}</label>
-                <Password v-model="confirmPassword" toggleMask class="input" />
+                <label>{{ isMobile ? '' : 'Yeni Şifre Tekrar:' }}</label>
+                <Password v-model="confirmPassword" toggleMask :placeholder="isMobile ? 'Şifre Tekrar' : ''" class="input" />
             </div>
             <hr />
             <Button label="Değiştir" severity="warn" class="button" @click="changePassword">
@@ -75,13 +75,12 @@ onBeforeUnmount(() => {
     background-color: rgba(236, 240, 245, 1);
     display: flex;
     flex-direction: column;
-    gap: 20px;
 }
 
 form {
     width: 645px;
     height: 288px;
-    margin: 0 auto;
+    margin: auto;
     border-radius: 20px;
     padding: 25px;
     display: flex;
@@ -166,14 +165,21 @@ label {
         width: 313px;
     }
 
-    .input {
-        width: 189px;
-    }
-
     .button {
         margin-left: 0;
         width: 100%;
     }
+}
 
+@media (prefers-color-scheme: dark) {
+    .button {
+        color: var(--text-ligh);
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    .button {
+        color: var(--text-dark);
+    }
 }
 </style>

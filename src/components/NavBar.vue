@@ -136,6 +136,7 @@ const item: MenuItem[] = [
 .navbar {
   margin-top: 20px;
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
   min-height: 80vh;
 }
@@ -221,7 +222,7 @@ const item: MenuItem[] = [
   color: var(--text-dark);
 }
 
-.pi.pi-minus {
+.pi-minus {
   color: white;
 }
 
@@ -260,6 +261,26 @@ const item: MenuItem[] = [
 
   .navbar__settings {
     margin-top: 34px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .pi-minus {
+    color: var(--text-light);
+  }
+
+  .pi-plus {
+    color: var(--text-dark);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .pi-minus {
+    color: var(--text-light);
+  }
+
+  .pi-plus {
+    color: var(--text-dark);
   }
 }
 </style>
