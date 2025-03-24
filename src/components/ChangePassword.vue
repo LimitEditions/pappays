@@ -148,10 +148,6 @@ label {
     line-height: 140%;
 }
 
-.button span {
-
-}
-
 @media (max-width: 768px) {
 
     .change-password {

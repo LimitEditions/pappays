@@ -18,6 +18,7 @@
 
 body {
   font-family: 'Manrope', sans-serif;
+  background: linear-gradient(180deg, #BFDCFD 0%, #FDFCFF 36.39%, #EBEEF2 64.62%, #CCE0FE 100%); border-radius: 0px;;
 }
 
 hr {

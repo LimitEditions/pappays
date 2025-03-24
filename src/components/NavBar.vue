@@ -221,6 +221,10 @@ const item: MenuItem[] = [
   color: var(--text-dark);
 }
 
+.pi.pi-minus {
+  color: white;
+}
+
 @media (max-width: 768px) {
   .navbar {
     display: none;
