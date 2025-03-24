@@ -9,11 +9,17 @@
         <div class="burger">
           <img src="/public//image/photo.png" alt="photo" class="burger-photo">
           <Button class="burgeer__btn" @click="toggleMobileMenu">
-            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg v-if="isMobileMenuOpen" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect width="36" height="36" rx="15" fill="white" />
               <line x1="10" y1="13" x2="26" y2="13" stroke="#303030" stroke-width="2" />
               <line x1="10" y1="18" x2="26" y2="18" stroke="#303030" stroke-width="2" />
               <line x1="10" y1="23" x2="26" y2="23" stroke="#303030" stroke-width="2" />
+            </svg>
+
+            <svg v-else width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="36" height="36" rx="15" fill="#303030"/>
+              <line x1="12.6362" y1="23.2929" x2="23.9499" y2="11.9792" stroke="white" stroke-width="2"/>
+              <line x1="13.0504" y1="12.2929" x2="24.3641" y2="23.6066" stroke="white" stroke-width="2"/>
             </svg>
           </Button>
         </div>
@@ -211,7 +217,7 @@ input {
   }
 
   .sidebar {
-    width: 373px;
+    width: 100%;
     height: 42px;
     padding: 0;
   }

@@ -141,7 +141,6 @@ const item: MenuItem[] = [
 }
 
 .navbar__item {
-  width: 237px;
   height: 42px;
   display: flex;
   justify-content: space-between;
@@ -228,13 +227,15 @@ const item: MenuItem[] = [
   }
 
   .navbar--visible {
-    background: rgba(238, 237, 240, 1);
+    background: rgba(226, 226, 226, 0.8);
     position: absolute;
-    right: 30px;
     display: block;
     z-index: 1;
-    padding: 10px;
-    border-radius: 15px;
+    padding: 25px 20px;
+    margin: 0;
+    border-radius: 20px;
+    backdrop-filter: blur(80px);
+    width: 354px;
   }
 
   .navbar__toggle {
