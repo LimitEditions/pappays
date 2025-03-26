@@ -41,7 +41,6 @@ const windowWidth = ref(window.innerWidth);
 const updateWidth = () => { windowWidth.value = window.innerWidth };
 
 onMounted(() => { window.addEventListener('resize', updateWidth) });
-
 onBeforeUnmount(() => { window.removeEventListener('resize', updateWidth) });
 
 const isVisible = computed(() => { return windowWidth.value > 768 ? true : props.isMobileOpen });
@@ -194,7 +193,7 @@ const item: MenuItem[] = [
 .navbar__settings {
   display: flex;
   flex-direction: column;
-  margin-top: 263px;
+  margin-top: 197px;
   gap: 5px;
 }
 
@@ -228,20 +227,29 @@ const item: MenuItem[] = [
 
 @media (max-width: 768px) {
   .navbar {
-    display: none;
+    min-height: 94vh;
+    position: fixed;
+    top: 27px;
+    right: -300px;
+    background: rgba(226, 226, 226, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    transition: transform 0.4s ease;
+    z-index: 1;
   }
 
   .navbar--visible {
     background: rgba(226, 226, 226, 0.8);
     position: absolute;
-    top: 60px;
-    display: block;
+    top: 50px;
+    display: flex;
     z-index: 1;
     padding: 25px 20px;
     margin: 0;
-    border-radius: 20px;
+    border-radius: 21px;
     backdrop-filter: blur(80px);
-    width: 373px;
+    width: 100%;
+    transform: translateX(-300px);
   }
 
   .navbar__toggle {

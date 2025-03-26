@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
 
 :root {
   /* text */
@@ -7,7 +7,7 @@
   --text-grey: rgba(105, 105, 105, 1);
 
   /* button */
-  --btn-color: #FE6A35;
+  --btn-color: #fe6a35;
 }
 
 * {
@@ -17,8 +17,16 @@
 }
 
 body {
-  font-family: 'Manrope', sans-serif;
-  background: linear-gradient(180deg, #BFDCFD 0%, #FDFCFF 36.39%, #EBEEF2 64.62%, #CCE0FE 100%); border-radius: 0px;;
+  font-family: "Manrope", sans-serif;
+  background: linear-gradient(
+    180deg,
+    #bfdcfd 0%,
+    #fdfcff 36.39%,
+    #ebeef2 64.62%,
+    #cce0fe 100%
+  );
+  border-radius: 0px;
+  overflow: hidden;
 }
 
 hr {
@@ -45,7 +53,7 @@ hr {
 }
 
 .p-password:has(.p-password-toggle-mask-icon) .p-password-input {
-  width: 189px !important;
+  width: 100% !important;
 }
 
 .p-panelmenu {
@@ -67,7 +75,7 @@ hr {
   background: none !important;
 }
 
-.p-panelmenu-item:not(.p-disabled)>.p-panelmenu-item-content {
+.p-panelmenu-item:not(.p-disabled) > .p-panelmenu-item-content {
   background: none !important;
 }
 
@@ -82,14 +90,12 @@ hr {
   transform: translateX(-10px);
 }
 
-.p-panelmenu-item-content>.navbar__item:hover::before {
-
+.p-panelmenu-item-content > .navbar__item:hover::before {
   opacity: 1; /* Стрелка становится видимой при наведении */
   transform: translateX(0); /* Стрелка плавно перемещается на место */
-  
 }
 
-.p-panelmenu-item-content>.navbar__item {
+.p-panelmenu-item-content > .navbar__item {
   display: flex;
   justify-content: flex-start !important;
   gap: 10px;
@@ -97,18 +103,16 @@ hr {
 }
 
 .p-focus {
-color: var(--text-dark) !important;
+  color: var(--text-dark) !important;
 }
 
-.p-panelmenu-item-content>.navbar__item:hover {
+.p-panelmenu-item-content > .navbar__item:hover {
   opacity: 100%;
 }
 
 .p-panelmenu-item-content .p-panelmenu-item-link {
   color: var(--text-dark);
 }
-
-
 
 .p-panelmenu-submenu:last-child {
   margin-bottom: 25px;
@@ -118,4 +122,6 @@ color: var(--text-dark) !important;
   background: none !important;
 }
 
-@media (max-width: 768px) {}
+.p-inputtext {
+  color: rgba(105, 105, 105, 1) !important;
+}

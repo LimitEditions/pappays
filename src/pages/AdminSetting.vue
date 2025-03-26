@@ -131,8 +131,6 @@ const toggleMobileMenu = () => {
 /* Стили для боковой панели */
 .sidebar {
   width: 277px;
-  max-width: 20%;
-  min-width: 200px;
   background: rgba(162, 162, 162, 0.25);
   padding: 8px 20px;
   border-radius: 20px;
@@ -179,7 +177,6 @@ const toggleMobileMenu = () => {
     radial-gradient(140% 94% at 50% 100%, #0064ffff 0%, #ff000000 100%),
     radial-gradient(0% 0% at 0% 0%, #016dffff 0%, #00254fff 100%);
   padding: 20px;
-  min-width: 300px;
   border-radius: 25px;
   color: white;
 }
@@ -188,7 +185,6 @@ const toggleMobileMenu = () => {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-grow: 1;
   margin-top: 90px;
 }
 
@@ -210,11 +206,10 @@ const toggleMobileMenu = () => {
 }
 
 .admin {
-  width: 242px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: 35px;
   background: rgba(255, 255, 255, 0.2);
   border-radius: 20px;
   padding: 5px 15px 3px 3px;
@@ -279,6 +274,7 @@ input {
   }
 
   .sidebar {
+    position: relative;
     width: 100%;
     height: 42px;
     padding: 0;
@@ -348,17 +344,40 @@ input {
   .message-error {
     height: 54px;
   }
+}
 
-  @media (prefers-color-scheme: dark) {
-    .sidebar__headding {
-      color: var(--text-ligh);
-    }
+@media (min-width: 960px) and (max-width: 1150px) {
+  .headding-title {
+    font-size: 18px;
   }
 
-  @media (prefers-color-scheme: light) {
-    .sidebar__headding {
-      color: var(--text-dark);
-    }
+  .admin {
+    gap: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 960px) {
+  .headding-title {
+    font-size: 16px;
+  }
+
+  .admin {
+    gap: 10px;
+  }
+  .admin p {
+    font-size: 9px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .sidebar__headding {
+    color: var(--text-ligh);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .sidebar__headding {
+    color: var(--text-dark);
   }
 }
 </style>
