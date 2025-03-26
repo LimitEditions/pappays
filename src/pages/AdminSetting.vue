@@ -131,6 +131,8 @@ const toggleMobileMenu = () => {
 /* Стили для боковой панели */
 .sidebar {
   width: 277px;
+  max-width: 20%;
+  min-width: 200px;
   background: rgba(162, 162, 162, 0.25);
   padding: 8px 20px;
   border-radius: 20px;
@@ -176,6 +178,7 @@ const toggleMobileMenu = () => {
     radial-gradient(140% 94% at 50% 100%, #0064ffff 0%, #ff000000 100%),
     radial-gradient(0% 0% at 0% 0%, #016dffff 0%, #00254fff 100%);
   padding: 20px;
+  min-width: 300px;
   border-radius: 25px;
   color: white;
 }

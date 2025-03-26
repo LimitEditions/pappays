@@ -68,13 +68,14 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .change-password {
-    width: 1073px;
     height: 538px;
     border-radius: 20px;
+    margin: 0 144px;
     padding: 40px;
     background-color: rgba(236, 240, 245, 1);
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     gap: 20px;
 }
 
