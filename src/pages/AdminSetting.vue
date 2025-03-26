@@ -161,6 +161,7 @@ const toggleMobileMenu = () => {
 
 .navbar__content--open {
   display: flex;
+  height: 90%;
 }
 
 /* Стили для блока с формой */

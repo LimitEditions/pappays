@@ -3,8 +3,8 @@
 :root {
   /* text */
   --text-dark: rgba(48, 48, 48, 1);
-  --text-light:rgba(255, 255, 255, 1);
-  --text-grey:rgba(105, 105, 105, 1);
+  --text-light: rgba(255, 255, 255, 1);
+  --text-grey: rgba(105, 105, 105, 1);
 
   /* button */
   --btn-color: #FE6A35;
@@ -18,13 +18,14 @@
 
 body {
   font-family: 'Manrope', sans-serif;
+  background: linear-gradient(180deg, #BFDCFD 0%, #FDFCFF 36.39%, #EBEEF2 64.62%, #CCE0FE 100%); border-radius: 0px;;
 }
 
 hr {
   width: 100%;
   height: 1px;
   color: rgba(147, 147, 148, 1);
-  opacity: 0.3;
+  opacity: 0.1;
 }
 
 .p-panelmenu-panel {
@@ -38,9 +39,9 @@ hr {
 }
 
 .p-inputtext {
-border: none !important;
-background: rgba(238, 237, 240, 1) !important;
-border-radius: 18px !important;
+  border: none !important;
+  background: rgba(238, 237, 240, 1) !important;
+  border-radius: 18px !important;
 }
 
 .p-password:has(.p-password-toggle-mask-icon) .p-password-input {
@@ -53,9 +54,9 @@ border-radius: 18px !important;
 }
 
 .p-message-text {
-font-weight: 700 !important;
-font-size: 14px !important;
-line-height: 140% !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  line-height: 140% !important;
 }
 
 .p-message-content {
@@ -66,15 +67,55 @@ line-height: 140% !important;
   background: none !important;
 }
 
-.p-panelmenu-item:not(.p-disabled) > .p-panelmenu-item-content:hover {
+.p-panelmenu-item:not(.p-disabled)>.p-panelmenu-item-content {
   background: none !important;
-  color: black !important;
 }
+
+.p-panelmenu-item-content {
+  height: 30px;
+}
+
+.p-panelmenu-item-content > .navbar__item::before {
+  content: url(/image/vector_right.svg);
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateX(-10px);
+}
+
+.p-panelmenu-item-content>.navbar__item:hover::before {
+
+  opacity: 1; /* Стрелка становится видимой при наведении */
+  transform: translateX(0); /* Стрелка плавно перемещается на место */
+  
+}
+
+.p-panelmenu-item-content>.navbar__item {
+  display: flex;
+  justify-content: flex-start !important;
+  gap: 10px;
+  opacity: 50%;
+}
+
+.p-focus {
+color: var(--text-dark) !important;
+}
+
+.p-panelmenu-item-content>.navbar__item:hover {
+  opacity: 100%;
+}
+
+.p-panelmenu-item-content .p-panelmenu-item-link {
+  color: var(--text-dark);
+}
+
+
+
+.p-panelmenu-submenu:last-child {
+  margin-bottom: 25px;
+}
+
 .p-panelmenu-item-link {
-background: none !important;
+  background: none !important;
 }
 
-@media (max-width: 768px) {
-
-}
-
+@media (max-width: 768px) {}
